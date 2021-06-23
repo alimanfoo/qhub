@@ -86,6 +86,8 @@ class LoadBalancer(Base):
 
 
 class OptionalFeatures(Base):
+    clearml: typing.Optional[ClearML]
+    prefect: typing.Optional[Prefect]
     load_balancer: typing.Optional[LoadBalancer]
 
 # ============= Terraform ===============
@@ -315,7 +317,6 @@ class Main(Base):
         TerraformModules
     ]  # No longer used, so ignored, but could still be in qhub-config.yaml
     certificate: Certificate
-    prefect: typing.Optional[Prefect]
     cdsdashboards: CDSDashboards
     security: Security
     default_images: DefaultImages
@@ -328,7 +329,6 @@ class Main(Base):
     theme: Theme
     profiles: Profiles
     environments: typing.Dict[str, CondaEnvironment]
-    clearml: typing.Optional[ClearML]
 
 
 def verify(config):
